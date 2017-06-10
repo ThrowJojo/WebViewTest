@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <title>Hello WebView</title>
+</head>
+<body>
+<div>Hey there WebView</div>
+<div>Platform: </div><div id="platformLabel">Waiting...</div>
+<script>
+
+    var platform = 'pending';
+
+    function onMessage(event) {
+        window.postMessage("Response: " + event.data);
+        let platformLabel = document.getElementById('platformLabel');
+        platformLabel.innerHTML = platform;
+    }
+
+    document.addEventListener('message', onMessage);
+    window.addEventListener('message', onMessage);
+
+</script>
+</body>
+</html>

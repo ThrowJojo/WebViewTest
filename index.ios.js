@@ -5,32 +5,19 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  WebView
-} from 'react-native';
+import { AppRegistry } from 'react-native';
+import App from './App';
+
+console.ignoredYellowBox = ['Remote debugger is'];
 
 export default class WebViewTest extends Component {
+
   render() {
     return (
-      <View style={Styles.container}>
-        <WebView style={Styles.webView} source={{uri: 'https://www.google.com'}} />
-      </View>
+        <App />
     );
   }
-}
 
-const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 30
-  },
-  webView: {
-    flex: 1
-  }
-});
+}
 
 AppRegistry.registerComponent('WebViewTest', () => WebViewTest);
